@@ -1,0 +1,69 @@
+
+
+<QuizManager>:
+    Question1Screen:
+        name: "question one"
+    Question2Screen:
+        name: "question two"
+    CorrectScreen:
+        name: "correct"
+    IncorrectScreen:
+        name: "incorrect"
+
+<Question1Screen>:
+    BoxLayout:
+        orientation: "vertical"
+        spacing: 5
+        Label:
+            text: "what color is a gorilla? "
+        BoxLayout:
+            Button:
+                text: "orange and purple"
+                on_release: root.answer_question(False)
+            Button:
+                text: "black and grey"
+                on_release: root.answer_question(True)
+            Button:
+                text: "blue and green"
+                on_release: root.answer_question(False)
+
+
+<CorrectScreen>:
+    BoxLayout:
+        spacing: 10
+        orientation: "vertical"
+        Label:
+            text:"correct"
+            Button:
+                text:"advance"
+                pos_hint:{"center_x":0.5}
+                size_hint: .5,.5
+                on_release: root.advance()
+
+
+<IncorrectScreen>:
+    BoxLayout:
+        spacing: 10
+        orientation: "vertical"
+        Label:
+            text:"incorrect"
+            Button:
+                text:"advance"
+                pos_hint:{"center_x":0.5}
+                size_hint: .5,.5
+                on_release: root.advance()
+
+<Question2Screen>:
+    BoxLayout:
+        orientation: "vertical"
+        spacing: 10
+        Label:
+            text:"roses are"
+        TextInput:
+            id: red
+        Button:
+            text:"enter"
+            on_release: root.answer_question(red.text)
+        Label:
+            id: test
+            text: ""
